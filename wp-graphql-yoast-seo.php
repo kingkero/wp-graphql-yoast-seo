@@ -647,11 +647,10 @@ add_action('graphql_init', function () {
                                 // Get data
                                 $seo = [
                                     'title' => wp_gql_seo_format_string(
-                                        YoastSEO()->meta->for_post($post->ID)->title
+                                        \get_post_meta($post->ID, '_yoast_wpseo_title', true)
                                     ),
                                     'metaDesc' => wp_gql_seo_format_string(
-                                        YoastSEO()->meta->for_post($post->ID)
-                                            ->description
+                                        \get_post_meta($post->ID, '_yoast_wpseo_metadesc', true)
                                     ),
                                     'focuskw' => wp_gql_seo_format_string(
                                         get_post_meta(
